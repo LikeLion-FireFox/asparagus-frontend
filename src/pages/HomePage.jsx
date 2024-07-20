@@ -1,5 +1,11 @@
+import { Container } from "./HomePage.styled";
+
 export default function HomePage() {
-  return (<>
-    <h1>Home Page</h1>
-  </>)
+    return (
+        <>
+            <Container>
+                <h1>Home Page</h1>
+            </Container>
+        </>
+    );
 }
