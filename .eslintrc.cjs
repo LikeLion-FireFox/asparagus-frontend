@@ -8,8 +8,8 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: "babel-eslint",
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.js'], 
+  parser: "@babel/eslint-parser", 
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
@@ -19,7 +19,5 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    "prettier/prettier": ["error", { "endOfLine": "auto" }]
-  },
-  ignorePatterns: [".eslintrc.cjs", "vite.config.js"]
+  }
 }
