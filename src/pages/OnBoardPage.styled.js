@@ -7,6 +7,8 @@ export const OnBoardTopScreen = styled.div`
         right: 30px;
     }
 
+    transition: background-color 0.4s ease-in-out;
+
     position: relative;
     width: 100%;
 
@@ -15,7 +17,7 @@ export const OnBoardTopScreen = styled.div`
     justify-content: center;
     align-items: center;
 
-    background-color: #88ccfc;
+    background-color: ${(props) => props.$bg_color ?? "#88ccfc"};
 `
 
 export const OnBoardBottomScreen = styled.div`

@@ -22,6 +22,9 @@ export default function OnBoardPage() {
         }
     }
 
+    const page_color = [
+        "#88ccfc", "#f4bbc1", "#c1c3fa" , "#cdfdd2"
+    ]
     const page_desc = [
         ["계약서 디지털화", "혹시 문서 내용을 일일히 따라치고 있나요?\n아스파라거스는 문자 인식 기술을 사용해서 계약서를 빠르게 디지털화할 수 있어요."],
         ["꼼꼼한 내용 분석", "작성한 계약서의 내용이 합리적인지 모르겠나요?\nAI가 회원님의 계약서를 분석하여 불합리한 계약 요소가 있는지 정확히 파악해드려요."],
@@ -31,18 +34,17 @@ export default function OnBoardPage() {
 
     return (
         <>
-            <OnBoardTopScreen>
+            <OnBoardTopScreen $bg_color={page_color[page_number]}>
                 {/* === 고정된 위치 === */}
                 <Paragraph size="l" variant="#ffffff">건너뛰기</Paragraph>
                 <PageDotDisplay currentPage={page_number} totalPages={total_page_number} />
                 {/* === 고정된 위치 === */}
                 <ImageSlider show_index={page_number}>
                     <img width="35%" src="src/assets/onboard_1.gif" alt="계약서 디지털화" />
-                    <img width="35%" src="src/assets/logo/512.png" alt="꼼꼼한 내용 분석" />
-                    <img width="35%" src="src/assets/logo/512.png" alt="안전한 계약서 관리 " />
+                    <img width="35%" src="src/assets/onboard_2.gif" alt="꼼꼼한 내용 분석" />
+                    <img width="35%" src="src/assets/onboard_3.gif" alt="안전한 계약서 관리 " />
                     <img width="35%" src="src/assets/logo/512.png" alt="무료로 체험해보세요" />
                 </ImageSlider>
-                
             </OnBoardTopScreen>
             <OnBoardBottomScreen>
                 <div>
