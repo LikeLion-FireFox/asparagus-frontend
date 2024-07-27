@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigation } from "react-router-dom";
 
 import { Button } from "@/components/forms/Button";
 
@@ -7,7 +6,6 @@ import { api } from "../config/apis";
 import * as S from "./Signup.style";
 
 function Signup() {
-    const navigation = useNavigation();
     const [payload, setPayload] = useState({
         nickname: "",
         email: "",
@@ -17,13 +15,20 @@ function Signup() {
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const handleSignup = async () => {
+        if (payload.password != confirmPassword) {
+            console.log(password, confirmPassword);
+            console.log("비밀번호가 일치하지 않습니다.");
+            return;
+        }
+
         try {
             const response = await api.post(`/loginPage/save`, JSON.stringify(payload), {
                 headers: { "Content-Type": "application/json" },
             });
             console.log("Signup Response:", response);
+            alert("회원가입 성공!");
         } catch (e) {
-            console.log(e.message);
+            console.log(e);
         }
     };
 
@@ -36,6 +41,7 @@ function Signup() {
     };
 
     const handlePasswordChange = (e) => {
+        console.log("handlePassword", e.target.value);
         setConfirmPassword(e.target.value);
     };
 
@@ -59,6 +65,7 @@ function Signup() {
                         value={payload.nickname}
                         onChange={handleChange}
                         required
+                        placeholder="이름을 입력하세요."
                     />
                 </S.FormGroup>
                 <S.FormGroup>
@@ -70,6 +77,7 @@ function Signup() {
                         value={payload.email}
                         onChange={handleChange}
                         required
+                        placeholder="이메일을 입력하세요."
                     />
                 </S.FormGroup>
                 <S.FormGroup>
@@ -84,7 +92,7 @@ function Signup() {
                     />
                 </S.FormGroup>
                 <S.FormGroup>
-                    <S.Label htmlFor="password">사용할 비밀번호</S.Label>
+                    <S.Label htmlFor="password">비밀번호</S.Label>
                     <S.Input
                         type="password"
                         id="password"
@@ -92,6 +100,7 @@ function Signup() {
                         value={payload.password}
                         onChange={handleChange}
                         required
+                        placeholder="5자리 이상 비밀번호를 입력하세요."
                     />
                 </S.FormGroup>
                 <S.FormGroup>
@@ -103,6 +112,7 @@ function Signup() {
                         value={confirmPassword}
                         onChange={handlePasswordChange}
                         required
+                        placeholder="비밀번호를 한번 더 입력하세요."
                     />
                 </S.FormGroup>
                 <S.SignupButton type="submit" onClick={handleSignup}>

@@ -44,9 +44,9 @@ export const FormGroup = styled.div`
 export const Label = styled.label`
     display: block;
     margin-bottom: 5px;
-    font-color: #565b60;
+    font-color: #6c7278;
     font-size: 12px;
-    backgroundcolor: #6c7278;
+    backgroundcolor: #f3f3f3;
 `;
 
 export const Input = styled.input`
