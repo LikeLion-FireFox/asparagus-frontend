@@ -1,11 +1,12 @@
+import React, { useState } from "react";
+
+import Login from "@/pages/Login";
+
 import { Container } from "./HomePage.styled";
 
 export default function HomePage() {
-    return (
-        <>
-            <Container>
-                <h1>Home Page</h1>
-            </Container>
-        </>
-    );
+    const [isLogin, setIsLogin] = useState(false);
+
+    console.log(isLogin);
+    return <Container>{isLogin ? {} : <Login />}</Container>;
 }
