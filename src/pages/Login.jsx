@@ -1,5 +1,6 @@
 import React, { h1, useState } from "react";
 
+import path from "../assets/Path.png";
 import logo from "../assets/logo.png";
 import { Button } from "../components/forms/Button";
 import { api, HTTPException } from "../config/apis";
@@ -9,6 +10,7 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [autoLogin, setAutoLogin] = useState(false);
+    const [kakao, setKakao] = useState("");
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -41,12 +43,31 @@ function Login() {
         }
     };
 
+    const handleKakaoLogin = async () => {
+        try {
+            const response = await api.get(`/loginPage`);
+            console.log("Login Response:", response.data);
+
+            // 서버에서 받은 URL로 리다이렉트
+            if (response.data) {
+                setKakao(response.data);
+                window.location.href = response.data;
+            } else {
+                console.error("카카오 로그인 URL을 받지 못했습니다.");
+            }
+        } catch (e) {
+            console.log("error", e);
+        }
+    };
+
     return (
         <S.LoginContainer>
             <S.LoginBox>
-                <S.Logo src={logo} alt="Logo" />
-                <S.Title>로그인</S.Title>
-                <S.Description>아스파라거스를 사용하려면 로그인이 필요해요</S.Description>
+                <S.Header>
+                    <S.Logo src={logo} alt="Logo" />
+                    <S.Title>로그인</S.Title>
+                    <S.Description>아스파라거스를 사용하려면 로그인이 필요해요</S.Description>
+                </S.Header>
                 <form onSubmit={handleSubmit}>
                     <S.FormGroup>
                         <S.Label htmlFor="email">이메일</S.Label>
@@ -87,10 +108,10 @@ function Login() {
                     </S.LoginButton>
                 </form>
                 <S.OrDivider>또는</S.OrDivider>
-                <S.KakaoLoginButton>
-                    <S.KakaoLogo src="/path-to-kakao-logo.png" alt="Kakao Logo" />
-                    카카오 로그인
-                </S.KakaoLoginButton>
+                <S.KakaoLoginContainer onClick={handleKakaoLogin}>
+                    <S.KakaoLogo src={path} alt="Kakao Logo" />
+                    <S.KakaoLoginText>카카오 로그인</S.KakaoLoginText>
+                </S.KakaoLoginContainer>
                 <S.SignUpPrompt>
                     계정이 없으신가요? <S.SignUpLink href="/signup">회원가입</S.SignUpLink>
                 </S.SignUpPrompt>
