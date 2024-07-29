@@ -1,16 +1,19 @@
 import React, { h1, useState } from "react";
+import { useDispatch } from "react-redux";
 
 import path from "../assets/Path.png";
 import logo from "../assets/logo.png";
 import { Button } from "../components/forms/Button";
 import { api, HTTPException } from "../config/apis";
 import * as S from "./Login.style";
+import { login, setAuthId } from "@/store/authSlice";
 
 function Login() {
+    const dispatch = useDispatch();
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [autoLogin, setAutoLogin] = useState(false);
-    const [kakao, setKakao] = useState("");
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -36,8 +39,16 @@ function Login() {
         try {
             const response = await api.post(`/loginPage`, JSON.stringify(payload), {
                 headers: { "Content-Type": "application/json" },
+                withCredentials: true,
             });
-            console.log("Login Response:", response.data);
+            if (response.status === 200) {
+                console.log("Login Response:", response);
+                console.log(response.data.id);
+                dispatch(setAuthId(response.data.id));
+                dispatch(login(true));
+            } else {
+                console.log(response.status);
+            }
         } catch (e) {
             console.log("error", e);
         }
@@ -46,11 +57,9 @@ function Login() {
     const handleKakaoLogin = async () => {
         try {
             const response = await api.get(`/loginPage`);
-            console.log("Login Response:", response.data);
+            console.log("Login Response:", response);
 
-            // 서버에서 받은 URL로 리다이렉트
             if (response.data) {
-                setKakao(response.data);
                 window.location.href = response.data;
             } else {
                 console.error("카카오 로그인 URL을 받지 못했습니다.");

@@ -5,7 +5,7 @@ export const LoginContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 90vh;
-    height: 100vh;
+    height: 90vh;
     background-color: #fff;
     box-sizing: border-box;
 
