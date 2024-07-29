@@ -26,6 +26,7 @@ function Signup() {
                 headers: { "Content-Type": "application/json" },
             });
             console.log("Signup Response:", response);
+            window.location.href = response.data;
             alert("회원가입 성공!");
         } catch (e) {
             console.log(e);
@@ -54,10 +55,13 @@ function Signup() {
         <S.Container>
             <S.SignupBox>
                 <S.BackArrow>←</S.BackArrow>
-                <S.Title>회원가입</S.Title>
-                <S.Description> 아스파라거스를 사용하려면 계정이 필요해요.</S.Description>
+                <S.Header>
+                    <S.Title>회원가입</S.Title>
+                    <S.Description> 아스파라거스를 사용하려면 계정이 필요해요.</S.Description>
+                </S.Header>
+
                 <S.FormGroup>
-                    <S.Label htmlFor="name">성/이름</S.Label>
+                    <S.Label htmlFor="name">이름</S.Label>
                     <S.Input
                         type="text"
                         id="name"

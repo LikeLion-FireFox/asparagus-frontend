@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     background-color: #fff;
 `;
 
@@ -14,6 +14,7 @@ export const SignupBox = styled.div`
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 430px;
+    height: 80vh;
 `;
 
 export const BackArrow = styled.span`
@@ -22,6 +23,10 @@ export const BackArrow = styled.span`
     cursor: pointer;
 `;
 
+export const Header = styled.div`
+    margin-top: 20px;
+    margin-bottom: 50px;
+`;
 export const Title = styled.div`
     font-size: 32px;
     font-weight: 600;
