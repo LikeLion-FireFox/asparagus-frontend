@@ -27,7 +27,7 @@ export const TopBar = ({ name, icon, icon_link }) => {
     return (
         <TopBarDiv>
             <img src={icon} alt="눌러서 마이페이지로 이동" onClick={() => {navigate(icon_link)}} />
-            <Paragraph size="m" weight="900" variant="#1A365D" >{name}</Paragraph>
+            <Paragraph size="m" weight="bold" variant="#1A365D" >{name}</Paragraph>
             {/* 정렬 맞춤용 */}
             <img src={icon} alt="눌러서 마이페이지로 이동" style={{opacity: 0}} />
         </TopBarDiv>

@@ -28,7 +28,7 @@ export default function HomePage() {
                     <Paragraph size="s" variant="#1A365D">이제는 AI와 함께 <b>안전하게 검토</b>하세요.</Paragraph>
                 </Notification>
                 <Content>
-                    <Paragraph size="l" weight="900" variant="#1A365D">빠른 시작</Paragraph>
+                    <Paragraph size="l" weight="bold" variant="#1A365D">빠른 시작</Paragraph>
                     <Paragraph size="xs" variant="#1A365D">AI로 빠르고 정확하게 계약서를 검토하세요.</Paragraph>
                     <Button variant="navy">계약서 검토 시작</Button>
                 </Content>
