@@ -26,8 +26,9 @@ function Signup() {
                 headers: { "Content-Type": "application/json" },
             });
             console.log("Signup Response:", response);
-            window.location.href = response.data;
-            alert("회원가입 성공!");
+            // window.location.href = response.data;
+            alert("회원가입이 완료되었습니다.");
+            window.location.href = "/";
         } catch (e) {
             console.log(e);
         }

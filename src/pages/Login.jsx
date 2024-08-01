@@ -69,6 +69,22 @@ function Login() {
         }
     };
 
+    const handleSignup = async () => {
+        try {
+            const response = await api.get(`/loginPage/save`);
+            console.log("Signup Response:", response);
+
+            if (response.data) {
+                console.log("sign up!");
+                window.location.href = "/";
+            } else {
+                console.log("카카오 회원가입 URL을 받지 못했습니다.");
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
     return (
         <S.LoginContainer>
             <S.LoginBox>
