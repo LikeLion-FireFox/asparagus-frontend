@@ -18,8 +18,10 @@ const ParagraphStyled = styled.p``;
  */
 export const Paragraph = ({ size, weight, variant, children }) => {
     return (
-        <Text size={size} weight={weight} variant={variant}>
-            {children}
-        </Text>
+        <ParagraphStyled>
+            <Text size={size} weight={weight} variant={variant}>
+                {children}
+            </Text>
+        </ParagraphStyled>
     );
 };

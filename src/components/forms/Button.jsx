@@ -27,6 +27,7 @@ export const Button = styled.button`
     border: none;
     border-radius: 50px;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
 
     color: #fff;
     /** @type {(props: IButton) => string} */

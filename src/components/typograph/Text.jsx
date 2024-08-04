@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 /**
- * @typedef {"xs" | "s" | "m" | "l" | "xl" | string} Size
+ * @typedef {"xs" | "s" | "m" | "l" | "xl" | "xxl" | string} Size
  * @typedef {"bold" | "normal"} Weight
- * @typedef {"white" | string} variant
+ * @typedef {"white" | "gray" | "navy" | "success" | "warning" | "danger" | string} Variant
  *
  * @typedef {Object} IText
  * @property {Size} size
@@ -28,6 +28,8 @@ export const Text = styled.span`
                 return "18px";
             case "xl":
                 return "30px";
+            case "xxl":
+                return "60px";
             default:
                 return props.size;
         }
@@ -38,6 +40,18 @@ export const Text = styled.span`
         switch (props.variant) {
             case "white":
                 return "#ffffff";
+            case "gray":
+                return "#b0b0b0";
+            case "secondary":
+                return "#4A5568";
+            case "navy":
+                return "#1A365D";
+            case "success":
+                return "#38A169";
+            case "warning":
+                return "#DD6B20";
+            case "danger":
+                return "#FF0000";
             default:
                 return props.variant;
         }
