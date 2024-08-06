@@ -40,13 +40,9 @@ export const Header = styled.div`
 `;
 
 export const Logo = styled.img`
-    width: 67px;
-    margin-bottom: 40px;
-
-    @media (max-width: 768px) {
-        width: 50px;
-        margin-bottom: 20px;
-    }
+    margin-top: -60px;
+    width: 72px;
+    margin-bottom: 60px;
 `;
 
 export const Title = styled.div`
@@ -77,10 +73,12 @@ export const FormGroup = styled.div`
 
 export const Label = styled.label`
     display: block;
-    margin-bottom: 5px;
+    margin-left: 2px;
+    margin-bottom: 6px;
     font-color: #6c7278;
     font-size: 12px;
     backgroundcolor: #f3f3f3;
+    vertical-align: center;
 `;
 
 export const Input = styled.input`
@@ -95,7 +93,7 @@ export const Input = styled.input`
 export const ForgotPassword = styled.a`
     display: block;
     text-align: right;
-    margin-top: 5px;
+    margin-top: 1px;
     color: #1a365d;
     text-decoration: none;
     font-size: 12px;
@@ -104,10 +102,11 @@ export const ForgotPassword = styled.a`
 export const CheckboxContainer = styled.div`
     display: flex;
     align-items: center;
+    vertical-align: center;
 `;
 
 export const Checkbox = styled.input`
-    margin-right: 10px;
+    margin-right: 6px;
 `;
 
 export const LoginButton = styled.button`

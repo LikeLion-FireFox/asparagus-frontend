@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux";
+import { api } from "../config/apis";
 import styled from "styled-components"
 
 import { Button } from "@/components/forms/Button"
@@ -12,6 +14,9 @@ import { PageDotDisplay } from "@/components/onboard/PageDotDisplay"
 export default function OnBoardPage() {
     const navigate = useNavigate();
     
+    const [isAuthenticated, setAuthenticated] = useState(useSelector((state) => state.auth.isAuthenticated));
+    console.log("로그인 상태", isAuthenticated);
+
     const [readyToMove, setReadyToMove] = useState(false);
     const total_page_number = 4;
     const [page_number, setPageNumber] = useState(0);
@@ -19,7 +24,12 @@ export default function OnBoardPage() {
 
     const NextPage = () => {
         if (readyToMove) {
-            navigate("/loginPage");
+            if (isAuthenticated){
+                navigate("/mainPage");
+            }
+            else {
+                navigate("/loginPage");
+            }
             return;
         }
 

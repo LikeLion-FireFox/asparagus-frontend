@@ -7,7 +7,7 @@ import MainPage from "@/pages/MainPage";
 import SplashPage from "./SplashPage";
 import OnBoardPage from "./OnBoardPage";
 
-import { api } from "../config/apis";
+
 import { Container } from "./HomePage.styled";
 
 export default function HomePage() {
@@ -20,13 +20,9 @@ export default function HomePage() {
         }, 2000)
     }, [])
 
-    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
     return (
         <>
-            {isLoading ? <SplashPage /> : (
-                isAuthenticated ? <MainPage /> : <OnBoardPage />
-            )}
+            {isLoading ? <SplashPage /> : <OnBoardPage />}
         </>
     );
 }

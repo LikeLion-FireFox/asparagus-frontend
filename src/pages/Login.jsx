@@ -1,5 +1,5 @@
 import React, { h1, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import path from "../assets/Path.png";
@@ -119,9 +119,8 @@ function Login() {
                             required
                             placeholder="5자리 이상 비밀번호를 입력해주세요."
                         />
-                        <S.ForgotPassword href="/forgot-password">비밀번호를 잊었나요?</S.ForgotPassword>
                     </S.FormGroup>
-                    <S.FormGroup>
+                    <S.FormGroup style={{width: "100%", display: "flex", justifyContent: "space-between"}}>
                         <S.CheckboxContainer>
                             <S.Checkbox
                                 type="checkbox"
@@ -129,8 +128,9 @@ function Login() {
                                 checked={autoLogin}
                                 onChange={handleAutoLoginChange}
                             />
-                            <S.Label htmlFor="auto-login">자동 로그인</S.Label>
+                            <S.Label htmlFor="auto-login" style={{marginBottom: "0px"}}>자동 로그인</S.Label>
                         </S.CheckboxContainer>
+                        <S.ForgotPassword href="/forgot-password">비밀번호를 잊었나요?</S.ForgotPassword>
                     </S.FormGroup>
                     <S.LoginButton type="submit" onClick={handleLogin}>
                         로그인
@@ -139,7 +139,7 @@ function Login() {
                 <S.OrDivider>또는</S.OrDivider>
                 <S.KakaoLoginContainer onClick={handleKakaoLogin}>
                     <S.KakaoLogo src={path} alt="Kakao Logo" />
-                    <S.KakaoLoginText>카카오 로그인</S.KakaoLoginText>
+                    <S.KakaoLoginText>카카오로 로그인</S.KakaoLoginText>
                 </S.KakaoLoginContainer>
                 <S.SignUpPrompt>
                     계정이 없으신가요? <S.SignUpLink onClick={() => {navigate("/signup")}}>회원가입</S.SignUpLink>

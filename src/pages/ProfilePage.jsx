@@ -34,7 +34,10 @@ export default function ProfilePage(){
     async function Logout() {
         async function RequestLogout() {
             try {
-                const response = await api.post(`/mainPage/logout?memberId=0`, withCredentials=true);
+                const response = await api.post(`/mainPage/logout?memberId=0`, {
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true,
+                });
                 if (response.status === 200) {
                     console.log("로그아웃 성공:", response);
                 } else {
