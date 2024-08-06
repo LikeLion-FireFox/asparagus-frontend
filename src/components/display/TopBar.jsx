@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 
 import MenuIcon from "src/assets/icon/menu.png"
 import { Paragraph } from "../typograph/Paragraph"
@@ -22,8 +22,7 @@ const TopBarDiv = styled.div`
 `
 
 export const TopBar = ({ name, icon, icon_link }) => {
-    const navigate = useNavigate()
-
+    const navigate = useNavigate();
     return (
         <TopBarDiv>
             <img src={icon} alt="눌러서 마이페이지로 이동" onClick={() => {navigate(icon_link)}} />

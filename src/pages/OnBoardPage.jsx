@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
 import { Button } from "@/components/forms/Button"
@@ -9,15 +10,24 @@ import { ImageSlider } from "@/components/onboard/SlideContainer"
 import { PageDotDisplay } from "@/components/onboard/PageDotDisplay"
 
 export default function OnBoardPage() {
+    const navigate = useNavigate();
+    
+    const [readyToMove, setReadyToMove] = useState(false);
     const total_page_number = 4;
     const [page_number, setPageNumber] = useState(0);
     const [btLabel, setBtLabel] = useState("다음");
 
     const NextPage = () => {
+        if (readyToMove) {
+            navigate("/loginPage");
+            return;
+        }
+
         if (page_number < total_page_number-1) {
             setPageNumber(page_number+1);
         }
         if (page_number >= total_page_number-2) {
+            setReadyToMove(true);
             setBtLabel("시작하기");
         }
     }
@@ -36,7 +46,7 @@ export default function OnBoardPage() {
         <>
             <OnBoardTopScreen $bg_color={page_color[page_number]}>
                 {/* === 고정된 위치 === */}
-                <Paragraph size="l" variant="#ffffff">건너뛰기</Paragraph>
+                {/* <Paragraph size="l" variant="#ffffff">건너뛰기</Paragraph> */}
                 <PageDotDisplay currentPage={page_number} totalPages={total_page_number} />
                 {/* === 고정된 위치 === */}
                 <ImageSlider show_index={page_number}>
