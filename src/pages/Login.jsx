@@ -7,7 +7,7 @@ import logo from "../assets/logo.png";
 import { Button } from "../components/forms/Button";
 import { api, HTTPException } from "../config/apis";
 import * as S from "./Login.style";
-import { login, setAuthId } from "@/store/authSlice";
+import { login, setAuthId, setAuthName } from "@/store/authSlice";
 
 function Login() {
     const navigate = useNavigate();
@@ -47,6 +47,7 @@ function Login() {
                 console.log("Login Response:", response);
                 console.log(response.data.id);
                 dispatch(setAuthId(response.data.id));
+                dispatch(setAuthName(response.data.nickname));
                 dispatch(login(true));
                 navigate("/mainPage");
             } else {
@@ -54,6 +55,7 @@ function Login() {
             }
         } catch (e) {
             console.log("error", e);
+            alert("로그인에 실패했어요. ID 또는 PW를 확인해주세요");
         }
     };
 

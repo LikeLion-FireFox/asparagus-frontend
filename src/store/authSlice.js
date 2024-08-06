@@ -7,9 +7,11 @@ const authSlice = createSlice({
     initialState: {
         isAuthenticated: false,
         authId: 0,
+        nickname: "test"
     },
     reducers: {
         login(state) {
+            console.log("로그인 정보 저장")
             state.isAuthenticated = true;
         },
         logout(state) {
@@ -21,8 +23,11 @@ const authSlice = createSlice({
         setAuthId(state, action) {
             state.authId = action.payload;
         },
+        setAuthName(state, action) {
+            state.nickname = action.payload;
+        },
     },
 });
 
-export const { login, logout, setAuthState, setAuthId } = authSlice.actions;
+export const { login, logout, setAuthState, setAuthId, setAuthName } = authSlice.actions;
 export default authSlice.reducer;
