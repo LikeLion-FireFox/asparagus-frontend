@@ -60,10 +60,10 @@ export default function OnBoardPage() {
                 <PageDotDisplay currentPage={page_number} totalPages={total_page_number} />
                 {/* === 고정된 위치 === */}
                 <ImageSlider show_index={page_number}>
-                    <img width="35%" src="src/assets/onboard_1.gif" alt="계약서 디지털화" />
-                    <img width="35%" src="src/assets/onboard_2.gif" alt="꼼꼼한 내용 분석" />
-                    <img width="35%" src="src/assets/onboard_3.gif" alt="안전한 계약서 관리 " />
-                    <img width="35%" src="src/assets/logo/512.png" alt="무료로 체험해보세요" />
+                    <img width="35%" src="onboard_1.gif" alt="계약서 디지털화" />
+                    <img width="35%" src="onboard_2.gif" alt="꼼꼼한 내용 분석" />
+                    <img width="35%" src="onboard_3.gif" alt="안전한 계약서 관리 " />
+                    <img width="35%" src="logo/512.png" alt="무료로 체험해보세요" />
                 </ImageSlider>
             </OnBoardTopScreen>
             <OnBoardBottomScreen>
